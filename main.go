@@ -1,39 +1,17 @@
 package main
 
-import "fmt"
+import dependencyinjection "github.com/charlieLin101274/golang-example-dependency-injection/dependency-injection"
 
-type Message struct {
-	message string
-}
+// func main() {
+// 	msg := dependencyinjection.NewMessage("hello world")
+// 	cr := dependencyinjection.NewChatroom(msg)
+// 	serve := dependencyinjection.NewServe(cr)
 
-type Chatroom struct {
-	Message Message
-}
-type Serve struct {
-	Chatroom Chatroom
-}
-
-func NewMessage(s string) (Message, error) {
-	return Message{s}, nil
-}
-
-func NewChatroom(m Message) (Chatroom, error) {
-	return Chatroom{m}, nil
-}
-
-func NewServe(c Chatroom) (Serve, error) {
-	return Serve{c}, nil
-}
-
-func (s Serve) Start() {
-	fmt.Println("start serve...")
-	fmt.Println("show the message: ", s.Chatroom.Message.message)
-}
+// 	serve.Start()
+// }
 
 func main() {
-	msg, _ := NewMessage("hello world")
-	cr, _ := NewChatroom(msg)
-	serve, _ := NewServe(cr)
+	serve := dependencyinjection.InitializeServe("hello world")
 
 	serve.Start()
 }
