@@ -1,6 +1,6 @@
 package main
 
-import dependencyinjection "github.com/charlieLin101274/golang-example-dependency-injection/dependency-injection"
+import dependencyinjection "github.com/charlieLin101274/golang-example-dependency-injection/template/dependency-injection"
 
 // func main() {
 // 	msg := dependencyinjection.NewMessage("hello world")
